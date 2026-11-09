@@ -20,19 +20,31 @@ console.log('Сохраненный выбранный товар:', catalog.get
 
 // Проверка корзины
 const basket = new Basket();
-basket.addItem(firstProduct);
-console.log('Товар добавлен в корзину. Текущий массив:', basket.getItems());
+const productA = apiProducts.items[0];
+const productB = apiProducts.items[1];
+
+basket.addItem(productA);
+console.log('Корзина после добавления первого товара:', basket.getItems());
 console.log('Количество товаров:', basket.getCount());
 console.log('Сумма стоимости:', basket.getTotal());
-console.log('Проверка наличия товара (true):', basket.hasItem(firstProduct.id));
+
+basket.addItem(productB);
+console.log('Корзина после добавления второго товара:', basket.getItems());
+console.log('Количество товаров:', basket.getCount());
+console.log('Сумма стоимости:', basket.getTotal());
+
+console.log('Проверка наличия первого товара (true):', basket.hasItem(productA.id));
 console.log('Проверка наличия несуществующего товара (false):', basket.hasItem('fake-id'));
 
-basket.removeItem(firstProduct);
-console.log('Товар удален из корзины. Текущий массив:', basket.getItems());
+basket.removeItem(productA);
+console.log('Корзина после удаления первого товара:', basket.getItems());
+console.log('Количество товаров:', basket.getCount());
+console.log('Сумма стоимости:', basket.getTotal());
 
-basket.addItem(firstProduct);
 basket.clear();
-console.log('Корзина очищена. Текущий массив:', basket.getItems());
+console.log('Корзина после очистки:', basket.getItems());
+console.log('Количество товаров:', basket.getCount());
+console.log('Сумма стоимости:', basket.getTotal());
 
 // Проверка покупателя
 const buyer = new Buyer();

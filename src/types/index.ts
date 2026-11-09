@@ -37,3 +37,5 @@ export interface IOrderResult {
     id: string;
     total: number;
 }
+
+export type TValidationErrors<T> = Partial<Record<keyof T, string>>;
